@@ -4,6 +4,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+#是否开启安全验证
 management:
   security:
     enabled: false
