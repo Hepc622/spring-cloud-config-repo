@@ -1,4 +1,2 @@
-userInfo:
-  name: hpc1
-  age: 23
-  sex: 1
+server:
+  port: 8081
