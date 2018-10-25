@@ -1,0 +1,100 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:6e6820ae355146e09109723449751f02@192.168.31.189:18761/eureka
+
+# Tomcat
+server:
+    tomcat:
+        uri-encoding: UTF-8
+        max-threads: 1000
+        min-spare-threads: 30
+    port: 8740
+
+spring:
+#配置上传文件的大小
+    http:
+      multipart:
+        maxFileSize: 10Mb
+        maxRequestSize: 10Mb
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://192.168.31.199:3306/forum?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+        username: lailibin
+        password: 1qaz2WSX@
+        initial-size: 10
+        max-active: 100
+        min-idle: 10
+        max-wait: 60000
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 20
+        time-between-eviction-runs-millis: 60000
+        min-evictable-idle-time-millis: 300000
+        validation-query: SELECT 1 FROM DUAL
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+    jackson:
+            time-zone: GMT+8
+            date-format: yyyy-MM-dd HH:mm:ss
+
+    redis:
+        open: false
+        database: 0
+        host: 192.168.31.199
+        port: 6379
+        password:
+        timeout: 6000
+        pool:
+            max-active: 1000
+            max-wait: -1
+            max-idle: 10
+            min-idle: 5
+#  YOYOW配置
+block:
+    server:
+        address: http://192.168.19.101:8093/rpc
+    issuer:
+        account: 217254279
+    provider: YOYOW
+    service:
+        url: http://10.104.47.162:8093
+    callback:
+      url:  http://www.32know.com/yoyotip
+
+#使用feign配置
+#ftp:
+#  ip: 192.168.31.199
+#  userName: ftpuser
+#  password: zaqwsx@123
+#  encoding: utf-8
+#  root:
+#    path: /ad
+#  url:
+#    path: http://192.168.31.199
+
+mybatis:
+#    mapperLocations: classpath:mapper/**/*.xml
+    typeAliasesPackage: com.sanliangknow.advertisement.dao.model
+    configLocation: classpath:mybatis.xml
+
+#短信配置
+sms:
+  appid:  1400113761
+  appkey: a1ea660c473ebbb5a36dd091a670628e
+  templateid: 157542
+  wallet:
+    templateid: 162778
+
+#微信配置
+weixin:
+  appid: wx150b2a7809877eff
+  appsecret: 26947be1a94633424fb0f85be1e9e6eb
+  miniprogram:
+    appid:  wx48bbce054d24c3a1
+    appsecret: f53f2cdebdbd428b7cab0c3f22be7c84
+
+logging:
+  config:
+    classpath: logback-spring.xml
