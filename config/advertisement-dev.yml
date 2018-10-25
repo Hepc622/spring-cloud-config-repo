@@ -9,7 +9,7 @@ server:
         uri-encoding: UTF-8
         max-threads: 1000
         min-spare-threads: 30
-    port: 8740
+    port: 8840
 
 spring:
 #配置上传文件的大小
